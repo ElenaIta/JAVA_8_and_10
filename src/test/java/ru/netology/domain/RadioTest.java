@@ -90,130 +90,53 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 
-    //    4/1 - диапазон звука
-    @Test
-    public void setCurrentVolume1() {
-        Radio rd = new Radio();
-        rd.setCurrentVolume(9);
-        int expected = 9;
-        int actual = rd.getCurrentVolume();
-        assertEquals(expected, actual);
-    }
 
-    //    4/2
+    //    4/1   - увеличение станции в диапазоне
     @Test
-    public void setCurrentVolume2() {
+    public void setPlusStation1() {
         Radio rd = new Radio();
-        rd.setCurrentVolume(-1);
-        int expected = 0;
-        int actual = rd.getCurrentVolume();
-        assertEquals(expected, actual);
-    }
+        rd.setCurrentStation(9);
 
-    //  4/3
-    @Test
-    public void setCurrentVolume3() {
-        Radio rd = new Radio();
-        rd.setCurrentVolume(11);
+        rd.setPlusStation();
         int expected = 10;
-        int actual = rd.getCurrentVolume();
+        int actual = rd.getCurrentStation();
         assertEquals(expected, actual);
     }
 
-    //    5/1   - увеличение звука
+    //    4/2   - увеличение станции в диапазоне
     @Test
-    public void setPlusVolume1() {
+    public void setPlusStation2() {
         Radio rd = new Radio();
-        rd.setCurrentVolume(9);
+        rd.setCurrentStation(10);
 
-        rd.setPlusVolume();
+        rd.setPlusStation();
         int expected = 10;
-        int actual = rd.getCurrentVolume();
+        int actual = rd.getCurrentStation();
         assertEquals(expected, actual);
     }
 
-    //    5/2   - увеличение звука
+    //   5/1   уменьшение станции в диапазоне
     @Test
-    public void setPlusVolume2() {
+    public void setMinusStation1() {
         Radio rd = new Radio();
-        rd.setCurrentVolume(10);
+        rd.setCurrentStation(8);
 
-        rd.setPlusVolume();
-        int expected = 10;
-        int actual = rd.getCurrentVolume();
-        assertEquals(expected, actual);
-    }
-
-    //   6/1   уменьшение звука
-    @Test
-    public void setMinusVolume1() {
-        Radio rd = new Radio();
-        rd.setCurrentVolume(8);
-
-        rd.setMinusVolume();
+        rd.setMinusStation();
         int expected = 7;
-        int actual = rd.getCurrentVolume();
+        int actual = rd.getCurrentStation();
         assertEquals(expected, actual);
     }
 
-    //   6/2   уменьшение звука
+    //   5/2   уменьшение станции в диапазоне
     @Test
-    public void setMinusVolume2() {
+    public void setMinusStation2() {
         Radio rd = new Radio();
-        rd.setCurrentVolume(0);
+        rd.setCurrentStation(0);
 
-        rd.setMinusVolume();
+        rd.setMinusStation();
         int expected = 0;
-        int actual = rd.getCurrentVolume();
+        int actual = rd.getCurrentStation();
         assertEquals(expected, actual);
     }
 
-
-    //   7/1   максимальный звук
-    @Test
-    public void setStopMaxVolume1() {
-        Radio rd = new Radio();
-        rd.setCurrentVolume(8);
-
-        rd.setStopMaxVolume();
-        int expected = 8;
-        int actual = rd.getCurrentVolume();
-        assertEquals(expected, actual);
-    }
-
-    //   7/2   максимальный звук
-    @Test
-    public void setStopMaxVolume2() {
-        Radio rd = new Radio();
-        rd.setCurrentVolume(11);
-
-        rd.setStopMaxVolume();
-        int expected = 10;
-        int actual = rd.getCurrentVolume();
-        assertEquals(expected, actual);
-    }
-
-    //   8/1
-    @Test
-    public void setStopMinVolume1() {
-        Radio rd = new Radio();
-        rd.setCurrentVolume(-1);
-
-        rd.setStopMinVolume();
-        int expected = 0;
-        int actual = rd.getCurrentVolume();
-        assertEquals(expected, actual);
-    }
-
-    //   8/2 - тест не проходит
-    @Test
-    public void setStopMinVolume2() {
-        Radio rd = new Radio();
-        rd.setCurrentVolume(1);
-
-        rd.setStopMinVolume();
-        int expected = 1;
-        int actual = rd.getCurrentVolume();
-        assertEquals(expected, actual);
-    }
 }
