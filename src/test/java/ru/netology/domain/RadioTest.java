@@ -185,10 +185,10 @@ class RadioTest {
     @Test
     public void setStopMaxVolume1() {
         Radio rd = new Radio();
-        rd.setCurrentVolume(100);
+        rd.setCurrentVolume(99);
 
         rd.setStopMaxVolume();
-        int expected = 100;
+        int expected = 99;
         int actual = rd.getCurrentVolume();
         assertEquals(expected, actual);
     }
