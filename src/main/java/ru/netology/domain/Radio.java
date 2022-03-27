@@ -4,15 +4,24 @@ public class Radio {
     public int getCurrentStation() {
         return currentStation;
     }
+
     private int currentStation;
     private int maxStation = 9;
     private int minStation = 0;
 
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    private int currentVolume;
+    private int maxVolume = 100;
+    private int minVolume = 0;
 
     public Radio() {
     }
-    public Radio(int station) {
-        this.maxStation = station - 1;
+
+    public Radio(int rd) {
+        this.currentStation = rd - 1;
     }
 
     // 1 выставлять номер радиостанции через прямое указание её номера
@@ -28,11 +37,12 @@ public class Radio {
         currentStation = newCurrentStation;
     }
 
-
     // 2 переключение последней станции на первую
     public void setNextStation() {
         if (currentStation == maxStation) {
             setCurrentStation(minStation);
+        } else {
+            setCurrentStation(currentStation + 1);
         }
     }
 
@@ -40,23 +50,51 @@ public class Radio {
     public void setPrevStation() {
         if (currentStation == minStation) {
             setCurrentStation(currentStation = maxStation);
+        } else {
+            setCurrentStation(currentStation - 1);
         }
     }
 
 
-    // 4 увеличение станции в диапазоне
-    public void setPlusStation() {
-        if (currentStation < 10) {
-            currentStation = currentStation + 1;
+    //  4 диапазон звука
+    public void setCurrentVolume(int newCurrentVolume) {
+        if (newCurrentVolume > 100) {
+            currentVolume = maxVolume;
+            return;
+        }
+        if (newCurrentVolume < 0) {
+            currentVolume = minVolume;
+            return;
+        }
+        currentVolume = newCurrentVolume;
+    }
+
+    // 5 увеличение звука
+    public void setPlusVolume() {
+        if (currentVolume < 100) {
+            currentVolume = currentVolume + 1;
         }
     }
 
-    // 5 уменьшение станции в диапазоне
-    public void setMinusStation() {
-        if (currentStation > 0) {
-            currentStation = currentStation - 1;
+    // 6 уменьшение звука
+    public void setMinusVolume() {
+        if (currentVolume > 0) {
+            currentVolume = currentVolume - 1;
         }
     }
 
+    // 7 максимальный звук
+    public void setStopMaxVolume() {
+        if (currentVolume == maxVolume) {
+            currentVolume = maxVolume;
+        }
+    }
+
+    // 8 минимальный звук
+    public void setStopMinVolume() {
+        if (currentVolume == minVolume) {
+            currentVolume = minVolume;
+        }
+    }
 
 }
