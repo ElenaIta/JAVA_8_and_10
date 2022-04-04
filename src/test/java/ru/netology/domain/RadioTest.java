@@ -5,18 +5,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
-    //   конструктор
-    @Test
-    public void createRadioWithStationCount() {
-        Radio rd = new Radio(10);
-        rd.setCurrentStation(9);
-        int expected = 9;
-        int actual = rd.getCurrentStation();
-
-        assertEquals(expected, actual);
-
-    }
-
 
     //   1/1
     @Test

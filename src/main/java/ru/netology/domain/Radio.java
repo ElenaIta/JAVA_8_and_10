@@ -1,27 +1,70 @@
 package ru.netology.domain;
 
 public class Radio {
-    public int getCurrentStation() {
-        return currentStation;
-    }
 
     private int currentStation;
     private int maxStation = 9;
     private int minStation = 0;
 
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
+    private int quantityStation = 10;
 
     private int currentVolume;
     private int maxVolume = 100;
     private int minVolume = 0;
 
-    public Radio() {
+
+    public int getCurrentStation() {
+        return currentStation;
     }
 
-    public Radio(int rd) {
-        this.currentStation = rd - 1;
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public int getMaxStation() {
+        return maxStation;
+    }
+
+    public void setMaxStation(int maxStation) {
+        this.maxStation = maxStation;
+    }
+
+    public int getMinStation() {
+        return minStation;
+    }
+
+    public void setMinStation(int minStation) {
+        this.minStation = minStation;
+    }
+
+    public int getMaxVolume() {
+        return maxVolume;
+    }
+
+    public void setMaxVolume(int maxVolume) {
+        this.maxVolume = maxVolume;
+    }
+
+    public int getMinVolume() {
+        return minVolume;
+    }
+
+    public void setMinVolume(int minVolume) { this.minVolume = minVolume; }
+
+    public int getQuantityStation() {
+        return quantityStation;
+    }
+
+    public void setQuantityStation(int quantityStation) {
+        this.quantityStation = quantityStation;
+    }
+
+
+    public Radio(int quantityStation) {
+        this.quantityStation = quantityStation;
+    }
+
+    public Radio() {
     }
 
     // 1 выставлять номер радиостанции через прямое указание её номера
