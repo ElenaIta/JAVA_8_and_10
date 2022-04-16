@@ -6,6 +6,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
 
+    //   1 лимит 10
+    @Test
+    public void setStation15() {
+        Radio rd = new Radio(20);
+        rd.setCurrentStation(15);
+        int expected = 15;
+        int actual = rd.getCurrentStation();
+
+        assertEquals(expected, actual);
+
+    }
+
+
     //   1/1
     @Test
     public void getCurrentStation() {
