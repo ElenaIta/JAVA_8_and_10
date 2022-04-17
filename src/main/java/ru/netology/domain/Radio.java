@@ -2,26 +2,22 @@ package ru.netology.domain;
 
 public class Radio {
     private int currentStation;
-    private int minStation;
-        private int quantityStation = 10;
-//    private int quantityStation = minStation + 10;
+    private int quantityStation = 10;
+//    private int quantityStation;
 
-    //    private int minStation = 0;
-    //    private int maxStation = 9;
-//    private int maxStation = minStation + 9;
-
-    private int maxStation = quantityStation - 1;
-//    private int minStation = quantityStation - 10;
-//    private int quantityStation = maxStation + 1;
+    private int minStation = 0;
+    private int maxStation;
 
     private int currentVolume;
     private int maxVolume = 100;
     private int minVolume = 0;
 
+
     public Radio() {
     }
 
     public Radio(int quantityStation) {
+        maxStation = quantityStation - 1;
         this.quantityStation = quantityStation;
     }
 
@@ -29,29 +25,26 @@ public class Radio {
     // 1 выставлять номер радиостанции через прямое указание её номера
     public void setCurrentStation(int newCurrentStation) {
 
-//        if (newCurrentStation > 9) {
-//            currentStation = maxStation;
-//            return;
-//        }
-//        if (newCurrentStation < 0) {
-//            return;
-//        }
-//        currentStation = newCurrentStation;
-//    }
-
-        if (newCurrentStation > maxStation) {
-            currentStation = maxStation;
+        if (newCurrentStation > quantityStation - 1) {
+            currentStation = quantityStation - 1;
             return;
         }
-        if (newCurrentStation < minStation) {
+        if (newCurrentStation < 0) {
             return;
         }
         currentStation = newCurrentStation;
+
+//        if (newCurrentStation <= quantityStation - 1) {
+//            if (newCurrentStation >= minStation)
+//                this.currentStation = newCurrentStation;
+//        }
+//        currentStation = newCurrentStation;
+//        return;
     }
 
     // 2 переключение последней станции на первую
     public void setNextStation() {
-        if (currentStation == maxStation) {
+        if (currentStation == quantityStation - 1) {
             setCurrentStation(minStation);
         } else {
             setCurrentStation(currentStation + 1);
@@ -61,7 +54,7 @@ public class Radio {
     // 3 переключение первой станции на последнюю
     public void setPrevStation() {
         if (currentStation == minStation) {
-            setCurrentStation(currentStation = maxStation);
+            setCurrentStation(currentStation = quantityStation - 1);
         } else {
             setCurrentStation(currentStation - 1);
         }
@@ -118,25 +111,25 @@ public class Radio {
         return quantityStation;
     }
 
-    public void setQuantityStation(int quantityStation) {
-        this.quantityStation = quantityStation;
-    }
+//    public void setQuantityStation(int quantityStation) {
+//        this.quantityStation = quantityStation;
+//    }
 
     public int getMinStation() {
         return minStation;
     }
 
-    public void setMinStation(int minStation) {
-        this.minStation = minStation;
-    }
+//    public void setMinStation(int minStation) {
+//        this.minStation = minStation;
+//    }
 
     public int getMaxStation() {
         return maxStation;
     }
 
-    public void setMaxStation(int maxStation) {
-        this.maxStation = maxStation;
-    }
+//    public void setMaxStation(int maxStation) {
+//        this.maxStation = maxStation;
+//    }
 
     public int getCurrentVolume() {
         return currentVolume;
@@ -146,15 +139,15 @@ public class Radio {
         return maxVolume;
     }
 
-    public void setMaxVolume(int maxVolume) {
-        this.maxVolume = maxVolume;
-    }
+//    public void setMaxVolume(int maxVolume) {
+//        this.maxVolume = maxVolume;
+//    }
 
     public int getMinVolume() {
         return minVolume;
     }
 
-    public void setMinVolume(int minVolume) {
-        this.minVolume = minVolume;
-    }
+//    public void setMinVolume(int minVolume) {
+//        this.minVolume = minVolume;
+//    }
 }

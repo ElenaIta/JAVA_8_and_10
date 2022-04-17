@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
 
-    //   1 лимит 10
+    //   1 
     @Test
     public void setStation15() {
         Radio rd = new Radio(20);
@@ -15,7 +15,6 @@ class RadioTest {
         int actual = rd.getCurrentStation();
 
         assertEquals(expected, actual);
-
     }
 
 
@@ -28,8 +27,8 @@ class RadioTest {
         int actual = rd.getCurrentStation();
 
         assertEquals(expected, actual);
-
     }
+
 
     //    1/2
     @Test
@@ -40,7 +39,6 @@ class RadioTest {
         int actual = rd.getCurrentStation();
 
         assertEquals(expected, actual);
-
     }
 
     //    1/3
@@ -51,7 +49,6 @@ class RadioTest {
         int expected = 9;
         int actual = rd.getCurrentStation();
         assertEquals(expected, actual);
-
     }
 
     //    2/1
